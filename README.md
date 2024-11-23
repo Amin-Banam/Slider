@@ -2,7 +2,7 @@
 
 ![viewfinal](slider11.png)
 
-- [Demo Project]()
+- [Demo Project](https://amin-banam.github.io/Slider/)
 
 - Developed by amin-banam
 
