@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+    <title>Slider</title>
+    <style>
+        *{
+            padding: 0;margin: 0;box-sizing: border-box;
+        }
+        body{
+            height: 80vh;
+            width: 100%;
+            background-color: black;
+        }
+        #slider{
+            width: 700px;
+            height: 500px;
+            display: flex;
+            position: relative;
+            margin: 50px auto;
+        }
+        #slider>img{
+            display: flex;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 1s;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        #slider>span{
+            position: absolute;
+            font-size: 50px;
+            bottom: 45px;
+            cursor: pointer;
+            transition: 0.4s;
+        }
+        #arrow_left{
+            right: 15%;
+            color: rgba(0, 0, 0, 0.616);
+        }
+        #arrow_left:hover{
+            color: rgba(255, 255, 255, 0.699);
+        }
+        #arrow_right{
+            right: 5%;
+            color: rgba(0, 0, 0, 0.616);
+        }
+        #arrow_right:hover{
+            color: rgba(255, 255, 255, 0.699);
+        }
+    </style>
+
+</head>
+<body>
+    
+    <div id="slider" class="container p-0">
+        <img id="img1" src="img/1.jpg" alt="">
+        <img id="img2" src="img/2.jpg" alt="">
+        <img id="img3" src="img/3.jpg" alt="">
+        <img id="img4" src="img/4.jpg" alt="">
+        <img id="img5" src="img/5.jpg" alt="">
+        <span id="arrow_left" onclick="arrow_left()"><i class="bi bi-arrow-left-circle-fill"></i></span>
+        <span id="arrow_right" onclick="arrow_right()"><i class="bi bi-arrow-right-circle-fill"></i></span>
+        <script>
+            let i = 4
+            para = document.querySelectorAll('#slider>img')
+            function arrow_left(){
+                if(i==4 && para[4]){
+                    document.getElementById('slider').innerHTML=`<img id="img4" src="img/4.jpg" alt="">
+                    <span id="arrow_left" onclick="arrow_left()"><i class="bi bi-arrow-left-circle-fill"></i></span>
+                    <span id="arrow_right" onclick="arrow_right()"><i class="bi bi-arrow-right-circle-fill"></i></span>`
+                    i--    
+                }else if(i==3 && para[3]){
+                    document.getElementById('slider').innerHTML=`<img id="img3" src="img/3.jpg" alt="">
+                    <span id="arrow_left" onclick="arrow_left()"><i class="bi bi-arrow-left-circle-fill"></i></span>
+                    <span id="arrow_right" onclick="arrow_right()"><i class="bi bi-arrow-right-circle-fill"></i></span>`
+                    i--
+                }else if(i==2 && para[2]){
+                    document.getElementById('slider').innerHTML=`<img id="img2" src="img/2.jpg" alt="">
+                    <span id="arrow_left" onclick="arrow_left()"><i class="bi bi-arrow-left-circle-fill"></i></span>
+                    <span id="arrow_right" onclick="arrow_right()"><i class="bi bi-arrow-right-circle-fill"></i></span>`
+                    i--
+                    
+                }else if(i==1 && para[1]){
+                    document.getElementById('slider').innerHTML=`<img id="img1" src="img/1.jpg" alt="">
+                    <span id="arrow_left" onclick="arrow_left()"><i class="bi bi-arrow-left-circle-fill"></i></span>
+                    <span id="arrow_right" onclick="arrow_right()"><i class="bi bi-arrow-right-circle-fill"></i></span>`
+                    i--
+                }else if(i==0 && para[0]){
+                    document.getElementById('slider').innerHTML=`<img id="img5" src="img/5.jpg" alt="">
+                    <span id="arrow_left" onclick="arrow_left()"><i class="bi bi-arrow-left-circle-fill"></i></span>
+                    <span id="arrow_right" onclick="arrow_right()"><i class="bi bi-arrow-right-circle-fill"></i></span>`
+                    i--
+                    i=4
+                }
+                console.log(i)
+            }
+            function arrow_right(){
+                if(i==0 && para[0]){
+                    document.getElementById('slider').innerHTML=`<img id="img2" src="img/2.jpg" alt="">
+                    <span id="arrow_left" onclick="arrow_left()"><i class="bi bi-arrow-left-circle-fill"></i></span>
+                    <span id="arrow_right" onclick="arrow_right()"><i class="bi bi-arrow-right-circle-fill"></i></span>`
+                    i++    
+                }else if(i==1 && para[1]){
+                    document.getElementById('slider').innerHTML=`<img id="img3" src="img/3.jpg" alt="">
+                    <span id="arrow_left" onclick="arrow_left()"><i class="bi bi-arrow-left-circle-fill"></i></span>
+                    <span id="arrow_right" onclick="arrow_right()"><i class="bi bi-arrow-right-circle-fill"></i></span>`
+                    i++
+                }else if(i==2 && para[2]){
+                    document.getElementById('slider').innerHTML=`<img id="img4" src="img/4.jpg" alt="">
+                    <span id="arrow_left" onclick="arrow_left()"><i class="bi bi-arrow-left-circle-fill"></i></span>
+                    <span id="arrow_right" onclick="arrow_right()"><i class="bi bi-arrow-right-circle-fill"></i></span>`
+                    i++
+                }else if(i==3 && para[3]){
+                    document.getElementById('slider').innerHTML=`<img id="img5" src="img/5.jpg" alt="">
+                    <span id="arrow_left" onclick="arrow_left()"><i class="bi bi-arrow-left-circle-fill"></i></span>
+                    <span id="arrow_right" onclick="arrow_right()"><i class="bi bi-arrow-right-circle-fill"></i></span>`
+                    i++
+                }else if(i==4 && para[4]){
+                    document.getElementById('slider').innerHTML=`<img id="img1" src="img/1.jpg" alt="">
+                    <span id="arrow_left" onclick="arrow_left()"><i class="bi bi-arrow-left-circle-fill"></i></span>
+                    <span id="arrow_right" onclick="arrow_right()"><i class="bi bi-arrow-right-circle-fill"></i></span>`
+                    i++
+                    i=0
+                }
+                console.log(i)
+            }
+        </script>
+    </div>
+</body>
+</html>
